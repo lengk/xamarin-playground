@@ -55,6 +55,7 @@ namespace Playground.Pages {
         void StartStop(object sender, EventArgs e) {
             var button = sender as Button;
             var action = Started ? "Stopping" : "Starting";
+            button.Text = Started ? "Start" : "Stop";
             Debug.WriteLine($"Clicked - {action}");
             if (!Started) {
                 StartBuildingList();
@@ -63,7 +64,7 @@ namespace Playground.Pages {
                 CancelTokenSource.Cancel();
                 Started = false;
             }
-            button.Text = !Started ? "Start" : "Stop";
+
         }
 
         void CancelClicked(object sender, System.EventArgs e) {
