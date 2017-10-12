@@ -36,7 +36,7 @@ namespace Playground.ViewModels {
 
         public void Add() {
             using (var trans = realm.BeginWrite()) {
-                realm.Add(new ShitModel {
+                Realm.GetInstance("playground.realm").Add(new ShitModel {
                     Name = "" + SomeShit.Count()
                 });
                 trans.Commit();
@@ -45,7 +45,7 @@ namespace Playground.ViewModels {
 
         public void Clear() {
             using (var trans = realm.BeginWrite()) {
-                realm.RemoveAll();
+                Realm.GetInstance("playground.realm").RemoveAll();
                 trans.Commit();
             }
         }

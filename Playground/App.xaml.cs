@@ -1,12 +1,14 @@
 ﻿using Xamarin.Forms;
 using Playground.Pages;
 using Playground.Helpers;
+using System;
+using System.Reflection;
 
 namespace Playground {
     public partial class App : Application {
         public App() {
             InitializeComponent();
-            MainPage = new RealmPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart() {
@@ -20,5 +22,8 @@ namespace Playground {
         protected override void OnResume() {
             // Handle when your app resumes
         }
+
+
+
     }
 }
