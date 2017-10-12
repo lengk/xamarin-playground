@@ -1,11 +1,12 @@
 ﻿using Xamarin.Forms;
 using Playground.Pages;
+using Playground.Helpers;
 
 namespace Playground {
     public partial class App : Application {
         public App() {
             InitializeComponent();
-            MainPage = new TaskAroundPage();
+            MainPage = new RealmPage();
         }
 
         protected override void OnStart() {
