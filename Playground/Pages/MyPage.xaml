@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+     x:Class="Playground.Pages.MyPage">
+    <StackLayout>
+        <Button Text="Press me baby!" />
+
+        <controls:CarouselViewControl Orientation="Horizontal"
+             x:Name="CarouselView" InterPageSpacing="10"
+            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="Aqua">
+                        <Label Text="asdasdasd" />
+                        <Label Text="{Binding Name}" BackgroundColor="Green"
+                            HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+        
+    </StackLayout>
+</ContentPage>

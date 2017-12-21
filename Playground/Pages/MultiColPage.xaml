@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:local="clr-namespace:Playground.Views"
+     xmlns:models="clr-namespace:Playground.Models"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="Playground.Pages.MultiColPage">
+    <StackLayout VerticalOptions="FillAndExpand"
+         HorizontalOptions="FillAndExpand">
+        <local:ThreeColListView x:Name="List" x:TypeArguments="models:Person"
+            BackgroundColor="Aqua" Items="{Binding ListSource}"
+            ColumnTapped="{Binding ColumnTappedCommand}"
+             SeparatorVisibility="None">
+            <local:ThreeColListView.ColumnTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}" />
+                </DataTemplate>
+            </local:ThreeColListView.ColumnTemplate>
+        </local:ThreeColListView>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Add" Clicked="AddClicked" />
+            <Button Text="Remove" Clicked="RemoveClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

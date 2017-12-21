@@ -1,12 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Collections;
+using System.Linq;
 using Playground.Helpers;
 using Playground.Models;
-using System.Collections.Generic;
 using Realms;
-using FFImageLoading.Work;
-using System.Linq;
 
 namespace Playground.ViewModels {
     public class RealmPageViewModel : INotifyPropertyChanged {
@@ -24,6 +21,8 @@ namespace Playground.ViewModels {
                 trans.Commit();
             }
             SomeShit = realm.All<ShitModel>();
+
+       
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
