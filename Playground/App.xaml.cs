@@ -8,7 +8,8 @@ namespace Playground {
     public partial class App : Application {
         public App() {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new MultiColPage();
+            //MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart() {
