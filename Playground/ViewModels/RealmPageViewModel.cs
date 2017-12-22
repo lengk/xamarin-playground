@@ -7,22 +7,19 @@ using Realms;
 
 namespace Playground.ViewModels {
     public class RealmPageViewModel : INotifyPropertyChanged {
-        readonly Realm realm;
+
+        Realm realm { get => RealmHelper.Instance; }
         RealmPage Page;
 
         public RealmPageViewModel(RealmPage p) {
             Page = p;
-            realm = Realm.GetInstance("playground.realm");
-            using (var trans = realm.BeginWrite()) {
+            realm.Write(() => {
                 for (var i = 0; i < 20; i++)
                     realm.Add(new ShitModel {
                         Name = "" + i
                     });
-                trans.Commit();
-            }
+            });
             SomeShit = realm.All<ShitModel>();
-
-       
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,7 +32,7 @@ namespace Playground.ViewModels {
 
         public void Add() {
             using (var trans = realm.BeginWrite()) {
-                Realm.GetInstance("playground.realm").Add(new ShitModel {
+                realm.Add(new ShitModel {
                     Name = "" + SomeShit.Count()
                 });
                 trans.Commit();
@@ -44,7 +41,7 @@ namespace Playground.ViewModels {
 
         public void Clear() {
             using (var trans = realm.BeginWrite()) {
-                Realm.GetInstance("playground.realm").RemoveAll();
+                realm.RemoveAll();
                 trans.Commit();
             }
         }

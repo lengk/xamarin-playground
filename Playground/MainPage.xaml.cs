@@ -13,15 +13,16 @@ namespace Playground.Pages {
     public partial class MainPage : ContentPage {
 
         // The Pages
-        public List<Page> Pages { get; }
+        public List<Type> Pages { get; }
 
         public MainPage() {
             // Rememeber to add your new page in here so that it shows up in the
             // list
-            Pages = new List<Page>{
-                new PlaygroundPage(),
-                new RealmPage(),
-                new TaskAroundPage()
+            Pages = new List<Type>{
+                typeof(PlaygroundPage),
+                typeof(RealmPage),
+                typeof(TaskAroundPage),
+                typeof(MultiColPage)
             };
             BindingContext = this;
             InitializeComponent();
@@ -29,13 +30,13 @@ namespace Playground.Pages {
 
         // Navigate to the new page, or explain why it failed!
         void Handle_ItemTapped(object sender, ItemTappedEventArgs args) {
-            var page = args.Item as Page;
+            var page = args.Item as Type;
             if (page == null) {
                 DisplayAlert("Error", "Invalid Page", "Ok");
                 return;
             }
             try {
-                Navigation.PushAsync(page);
+                Navigation.PushAsync((Page)Activator.CreateInstance(page));
             } catch (Exception e) {
                 Debug.WriteLine(e);
                 DisplayAlert("Failed to Open page", e.Message, "ok");

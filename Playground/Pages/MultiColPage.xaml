@@ -6,9 +6,8 @@
      x:Class="Playground.Pages.MultiColPage">
     <StackLayout VerticalOptions="FillAndExpand"
          HorizontalOptions="FillAndExpand">
-        <local:ThreeColListView x:Name="List" x:TypeArguments="models:Person"
-            BackgroundColor="Aqua" Items="{Binding ListSource}"
-            ColumnTapped="{Binding ColumnTappedCommand}"
+        <local:ThreeColListView x:Name="List" BackgroundColor="Aqua"
+             ColumnTapped="{Binding ColumnTappedCommand}"
              SeparatorVisibility="None">
             <local:ThreeColListView.ColumnTemplate>
                 <DataTemplate>

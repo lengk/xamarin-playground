@@ -10,9 +10,9 @@ namespace Playground.Views {
         protected override void OnBindingContextChanged() {
             base.OnBindingContextChanged();
             if (BindingContext!=null){
-                var page = BindingContext as Page;
+                var page = BindingContext as Type;
                 View = new Label {
-                    Text = page.GetType().Name
+                    Text = page.Name
                 };
             }
         }

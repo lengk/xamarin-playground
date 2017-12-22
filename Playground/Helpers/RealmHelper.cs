@@ -8,8 +8,10 @@ namespace Playground.Helpers {
             get {
                 var config = new RealmConfiguration(Constants.REALM_FILE);
                 config.ShouldDeleteIfMigrationNeeded = true;
+                Realm instance;
                 try {
-                    return Realm.GetInstance(config);
+                    instance = Realm.GetInstance(config);
+                    return instance;
                 } catch (System.Reflection.ReflectionTypeLoadException err) {
                     Debug.WriteLine(err);
                 } catch (Exception e) {
