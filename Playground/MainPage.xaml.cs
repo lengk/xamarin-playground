@@ -22,7 +22,8 @@ namespace Playground.Pages {
                 typeof(PlaygroundPage),
                 typeof(RealmPage),
                 typeof(TaskAroundPage),
-                typeof(MultiColPage)
+                typeof(MultiColPage),
+                typeof(DisabledButtonPage)
             };
             BindingContext = this;
             InitializeComponent();
