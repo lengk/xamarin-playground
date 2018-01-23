@@ -43,6 +43,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\DisabledButtonPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -73,6 +77,12 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Helpers\RealmHelper.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Util\Singleton.cs" />
+    <Compile Include="Pages\DisabledButtonPage.xaml.cs">
+      <DependentUpon>DisabledButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LockedButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading.Forms">
@@ -115,6 +125,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="ViewModels\" />
     <Folder Include="New Folder\" />
+    <Folder Include="Util\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.2.2.0\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.2.2.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
