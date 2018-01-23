@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:Playground.Views"
 	 x:Class="Playground.Pages.MainPage">
 	<StackLayout HorizontalOptions="Center">
-        <Label Text="Demonstration Pages"/>
+        <Label FontSize="20" FontAttributes="Bold" Text="Demonstration Pages"/>
         <ListView ItemsSource="{Binding Pages}" ItemTapped="Handle_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
