@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Threading;
@@ -16,7 +14,7 @@ namespace Playground.Pages {
         CancellationTokenSource CancelTokenSource = new CancellationTokenSource();
         CancellationToken CancelToken;
         Task BuildListTask;
-        bool Started;
+
         public TaskAroundPage() {
             InitializeComponent();
             NumbersList.ItemsSource = ListData;
@@ -37,14 +35,12 @@ namespace Playground.Pages {
         /// </summary>
         /// <returns>The building list.</returns>
         async Task CreateBuildTask() {
-            Started = true;
             while (true) {
                 await Task.Delay(100);
                 CancelToken.ThrowIfCancellationRequested();
                 // Will throw error unless invoked on main thread
                 Device.BeginInvokeOnMainThread(() => ListData.Add("" + ListData.Count));
             }
-            return;
         }
 
         /// <summary>
@@ -54,8 +50,13 @@ namespace Playground.Pages {
         /// <param name="e">E.</param>
         void StartStop(object sender, EventArgs e) {
             var button = sender as Button;
+            bool Started = false;
+            if (BuildListTask != null) {
+                Started = BuildListTask?.Status == TaskStatus.WaitingForActivation;
+            }
             var action = Started ? "Stopping" : "Starting";
             button.Text = Started ? "Start" : "Stop";
+
             Debug.WriteLine($"Clicked - {action}");
             if (!Started) {
                 StartBuildingList();
@@ -64,7 +65,6 @@ namespace Playground.Pages {
                 CancelTokenSource.Cancel();
                 Started = false;
             }
-
         }
 
         void CancelClicked(object sender, System.EventArgs e) {
