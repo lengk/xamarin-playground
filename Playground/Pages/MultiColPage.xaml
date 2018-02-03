@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-     xmlns:local="clr-namespace:Playground.Views"
+     xmlns:views="clr-namespace:Playground.Views"
+    xmlns:local="clr-namespace:Playground"
      xmlns:models="clr-namespace:Playground.Models"
      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
      x:Class="Playground.Pages.MultiColPage">
     <StackLayout VerticalOptions="FillAndExpand"
          HorizontalOptions="FillAndExpand">
-        <local:ThreeColListView x:Name="List" BackgroundColor="Aqua"
+        <views:GridListView x:Name="List" BackgroundColor="Aqua"
+            x:TypeArguments="models:Person, local:ViewModels.ViewCells.GridListCellVM"
              ColumnTapped="{Binding ColumnTappedCommand}"
              SeparatorVisibility="None">
-            <local:ThreeColListView.ColumnTemplate>
+            <views:GridListView.ColumnTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding Name}" />
+                    <Label Text="{Binding Model.Name}" />
                 </DataTemplate>
-            </local:ThreeColListView.ColumnTemplate>
-        </local:ThreeColListView>
+            </views:GridListView.ColumnTemplate>
+        </views:GridListView>
         <StackLayout Orientation="Horizontal">
             <Button Text="Add" Clicked="AddClicked" />
             <Button Text="Remove" Clicked="RemoveClicked" />

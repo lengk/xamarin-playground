@@ -20,10 +20,12 @@ namespace Playground.Pages {
             // list
             Pages = new List<Type>{
                 typeof(PlaygroundPage),
-                typeof(RealmPage),
+                typeof(RealmBindingPage),
                 typeof(TaskAroundPage),
                 typeof(MultiColPage),
-                typeof(DisabledButtonPage)
+                typeof(DisabledButtonPage),
+                typeof(RealmMultiThreadAccess),
+                typeof(TaskFactoryTest)
             };
             BindingContext = this;
             InitializeComponent();

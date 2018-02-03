@@ -11,7 +11,7 @@ using Realms;
 namespace Playground.ViewModels {
     public class MultiColPageViewModel: INotifyPropertyChanged {
         public IEnumerable<Person> ListSource { get; set; }
-        public ICommand ColumnTappedCommand;
+        public Command<Person> ColumnTappedCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -20,9 +20,7 @@ namespace Playground.ViewModels {
             ListSource = RealmHelper.Instance.All<Person>();
         }
 
-        void ColumnClicked(object obj) {
-            Debug.WriteLine(((Person)obj).Name);
-        }
+        void ColumnClicked(Person obj) => Debug.WriteLine(obj.Name);
     }
 }
 

@@ -47,6 +47,14 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\RealmMultiThreadAccess.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\TaskFactoryTest.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -63,13 +71,12 @@
     <Compile Include="Pages\RealmPage.xaml.cs">
       <DependentUpon>RealmPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\RealmPageViewModel.cs" />
+    <Compile Include="ViewModels\RealmBindingPageViewModel.cs" />
     <Compile Include="Models\ShitModel.cs" />
     <Compile Include="Views\PageListItemView.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThreeColListView.cs" />
     <Compile Include="Pages\MultiColPage.xaml.cs">
       <DependentUpon>MultiColPage.xaml</DependentUpon>
     </Compile>
@@ -77,12 +84,21 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Helpers\RealmHelper.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Helpers\RepeatableTaskManager.cs" />
     <Compile Include="Util\Singleton.cs" />
     <Compile Include="Pages\DisabledButtonPage.xaml.cs">
       <DependentUpon>DisabledButtonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LockedButton.cs" />
+    <Compile Include="Pages\RealmMultiThreadAccess.xaml.cs">
+      <DependentUpon>RealmMultiThreadAccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskFactoryTest.xaml.cs">
+      <DependentUpon>TaskFactoryTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GridListView.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\ViewCells\GridListCellVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading.Forms">
@@ -124,8 +140,8 @@
     <Folder Include="Controllers\" />
     <Folder Include="Helpers\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="New Folder\" />
     <Folder Include="Util\" />
+    <Folder Include="ViewModels\ViewCells\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.2.2.0\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.2.2.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" />

@@ -12,6 +12,7 @@ namespace Playground.Pages {
     public partial class MultiColPage : ContentPage {
         Realm realm { get => RealmHelper.Instance; }
         public MultiColPage() {
+            realm.Write(realm.RemoveAll<Person>);
             BindingContext = new MultiColPageViewModel(this);
             InitializeComponent();
             List.Items = realm.All<Person>();
@@ -20,7 +21,8 @@ namespace Playground.Pages {
         void AddClicked(object sender, System.EventArgs e) {
             realm.Write(() => {
                 var person = new Person() {
-                    Name = "asda"
+                    Name = "asda",
+                    ID = realm.All<Person>().Count().ToString()
                 };
                 realm.Add(person, false);
             });

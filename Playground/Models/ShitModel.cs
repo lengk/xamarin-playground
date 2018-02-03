@@ -3,6 +3,7 @@ using Realms;
 
 namespace Playground.Models {
     public class ShitModel : RealmObject {
+        
         public string Name { get; set; }
 
         public override string ToString() {

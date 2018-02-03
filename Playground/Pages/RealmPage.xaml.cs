@@ -5,16 +5,16 @@ using Xamarin.Forms;
 using Playground.ViewModels;
 
 namespace Playground.Helpers {
-    public partial class RealmPage : ContentPage {
+    public partial class RealmBindingPage : ContentPage {
 
-        RealmPageViewModel Model { get { return BindingContext as RealmPageViewModel; } }
+        RealmBindingPageViewModel Model { get { return BindingContext as RealmBindingPageViewModel; } }
 
-        public RealmPage() {
-            BindingContext = new RealmPageViewModel(this);
+        public RealmBindingPage() {
+            BindingContext = new RealmBindingPageViewModel(this);
             InitializeComponent();
         }
 
-        void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e) {
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
 
         }
 

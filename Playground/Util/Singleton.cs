@@ -1,14 +1,10 @@
 ﻿using System;
 namespace Playground.Util {
-    public class Singleton {
-        static Singleton _Instance;
-
-        public static Singleton Instance {
+    public abstract class Singleton<T> where T : Singleton<T>, new() {
+        static T _instance = new T();
+        public static T Instance {
             get {
-                if (_Instance == null) {
-                    _Instance = new Singleton();
-                }
-                return _Instance;
+                return _instance;
             }
         }
     }

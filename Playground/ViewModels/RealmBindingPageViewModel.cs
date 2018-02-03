@@ -6,12 +6,12 @@ using Playground.Models;
 using Realms;
 
 namespace Playground.ViewModels {
-    public class RealmPageViewModel : INotifyPropertyChanged {
+    public class RealmBindingPageViewModel : INotifyPropertyChanged {
 
         Realm realm { get => RealmHelper.Instance; }
-        RealmPage Page;
+        RealmBindingPage Page;
 
-        public RealmPageViewModel(RealmPage p) {
+        public RealmBindingPageViewModel(RealmBindingPage p) {
             Page = p;
             realm.Write(() => {
                 for (var i = 0; i < 20; i++)
