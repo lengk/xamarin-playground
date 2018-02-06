@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="Playground.Pages.OverlayView">
+    <AbsoluteLayout BackgroundColor="Gray">
+        <Button HorizontalOptions="Center" VerticalOptions="Center"
+            AbsoluteLayout.LayoutFlags="PositionProportional" TextColor="White"
+            BackgroundColor="Black" AbsoluteLayout.LayoutBounds="0.5,0.5,100,50"
+            x:Name="button" Text="Press me" Clicked="Handle_Clicked"/>
+    </AbsoluteLayout>
+</ContentPage>

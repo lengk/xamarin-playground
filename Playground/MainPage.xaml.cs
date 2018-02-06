@@ -25,7 +25,8 @@ namespace Playground.Pages {
                 typeof(MultiColPage),
                 typeof(DisabledButtonPage),
                 typeof(RealmMultiThreadAccess),
-                typeof(TaskFactoryTest)
+                typeof(TaskFactoryTest),
+                typeof(OverlayView)
             };
             BindingContext = this;
             InitializeComponent();

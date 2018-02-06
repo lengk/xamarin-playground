@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
      xmlns:views="clr-namespace:Playground.Views"
-    xmlns:local="clr-namespace:Playground"
+     xmlns:local="clr-namespace:Playground"
      xmlns:models="clr-namespace:Playground.Models"
      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
      x:Class="Playground.Pages.MultiColPage">
