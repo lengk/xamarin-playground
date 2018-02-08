@@ -106,6 +106,7 @@
     <Compile Include="Pages\OverlayView.xaml.cs">
       <DependentUpon>OverlayView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\ContentPageExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading.Forms">
@@ -149,6 +150,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Util\" />
     <Folder Include="ViewModels\ViewCells\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.2.2.0\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.2.2.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
